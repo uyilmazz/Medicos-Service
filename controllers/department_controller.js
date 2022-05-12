@@ -4,14 +4,17 @@ const Department = require("../models/department");
 
 module.exports.getDepartments = async (req, res) => {
 
+    const limit = req.query.limit;
     try {
-        const departments = await Department.find();
+        const departments = await Department.find().limit(limit);
         res.status(StatusCodes.OK).send(departments);
     } catch (error) {
         res.status(StatusCodes.BAD_REQUEST).send(error);
     }
 
 }
+
+
 
 module.exports.addDepartment = async (req, res) => {
     const body = req.body;

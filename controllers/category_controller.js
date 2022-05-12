@@ -3,8 +3,9 @@ const Category = require('../models/category');
 
 module.exports.getCategories = async (req, res) => {
 
+    const limit = req.query.limit;
     try {
-        const categories = await Category.find();
+        const categories = await Category.find().limit(limit);
         res.status(StatusCodes.OK).send(categories);
     } catch (error) {
         res.status(StatusCodes.BAD_REQUEST).send(error);

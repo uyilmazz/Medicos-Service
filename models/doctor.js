@@ -13,7 +13,7 @@ const doctorSchema = new Schema({
     about: {
         type: String
     },
-    imageUrl: {
+    profileUrl: {
         type: String
     },
     experience: {
@@ -24,6 +24,10 @@ const doctorSchema = new Schema({
     },
     patience: {
         type: Number
+    },
+    available: {
+        type: Boolean,
+        default: false
     },
     appointments: [
         {
